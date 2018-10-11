@@ -147,7 +147,7 @@ public class rotacaoCuboSegundoJogo : MonoBehaviour {
             TocarAudioCriancas();
             ab.Play ("BaloesAnimacao");
             Destroy(other.gameObject);
-            
+            PontuacaoSegundoJogo.pontos++;
             animatorTextoCirculo.Play ("CIRCULO");
 
 		} else if (other.gameObject.tag == "poligono" && this.gameObject.tag == "poligonoBase") {
@@ -156,6 +156,7 @@ public class rotacaoCuboSegundoJogo : MonoBehaviour {
             TocarAudioCriancas();
             ab.Play("BaloesAnimacao");
             Destroy(other.gameObject);
+            PontuacaoSegundoJogo.pontos++;
             animatorTextoPentagono.Play ("PENTAGONO");
 
 		} else if (other.gameObject.tag == "triangulo" && this.gameObject.tag == "trianguloBase") {
@@ -165,6 +166,7 @@ public class rotacaoCuboSegundoJogo : MonoBehaviour {
             TocarAudioCriancas();
             ab.Play ("BaloesAnimacao");
             Destroy(other.gameObject);
+            PontuacaoSegundoJogo.pontos++;
             animatorTextoTriangulo.Play ("TRIANGULO");
             
 
@@ -175,6 +177,7 @@ public class rotacaoCuboSegundoJogo : MonoBehaviour {
             TocarAudioCriancas();
 			ab.Play ("BaloesAnimacao");
             Destroy(other.gameObject);
+            PontuacaoSegundoJogo.pontos++;
             animatorTextoQuadrado.Play ("QUADRADO");
 			StartCoroutine ("EspereOsSegundos");
 

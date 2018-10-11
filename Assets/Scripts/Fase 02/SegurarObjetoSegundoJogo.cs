@@ -14,6 +14,9 @@ public class SegurarObjetoSegundoJogo : MonoBehaviour
         Vector3 posicao = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distancia);
         Vector3 posicaoDoObjeto = Camera.main.ScreenToWorldPoint(posicao);
         transform.position = posicaoDoObjeto;
+        
+        //PontuacaoSegundoJogo.pontos ++;
+        Debug.Log("aqui "+ PontuacaoSegundoJogo.pontos);
     }
 
     private void OnTriggerEnter(Collider collision)
