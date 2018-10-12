@@ -23,7 +23,11 @@ public class Relogio : MonoBehaviour {
 	void Update () {
         tempoRestante -= Time.deltaTime;
         textoTempoRestante.text = "Tempo:" + Mathf.Round(tempoRestante);
-        if (tempoRestante < 0)
+        if (PontuacaoSegundoJogo.pontos >= 4)
+        {
+            GameOver();
+            //StartCoroutine("EspereOsSegundos");
+        } else if (tempoRestante < 0)
         {
             GameOver();
         }
