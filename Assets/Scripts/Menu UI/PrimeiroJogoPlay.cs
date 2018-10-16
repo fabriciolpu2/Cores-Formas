@@ -6,6 +6,7 @@ public class PrimeiroJogoPlay : MonoBehaviour {
 
     public Camera cameraPrincipal;
     public bool? animacaoCamera;
+    public GameObject loadLevel;
 
 	
 	void Update () {
@@ -21,7 +22,8 @@ public class PrimeiroJogoPlay : MonoBehaviour {
             }
             else
             {
-                SceneManager.LoadScene("PrimeiroJogo");
+                //loadLevel.GetComponent<LevelLoad>().LoadLevel(1);
+                SceneManager.LoadScene(3);
             }
         }
 	}
