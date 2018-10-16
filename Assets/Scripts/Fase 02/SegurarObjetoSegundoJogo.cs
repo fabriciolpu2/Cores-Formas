@@ -16,7 +16,7 @@ public class SegurarObjetoSegundoJogo : MonoBehaviour
         transform.position = posicaoDoObjeto;
         
         //PontuacaoSegundoJogo.pontos ++;
-        Debug.Log("aqui "+ PontuacaoSegundoJogo.pontos);
+        //Debug.Log("aqui "+ PontuacaoSegundoJogo.pontos);
     }
 
     private void OnTriggerEnter(Collider collision)

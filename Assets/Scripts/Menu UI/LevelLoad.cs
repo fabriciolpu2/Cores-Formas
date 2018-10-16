@@ -8,10 +8,11 @@ public class LevelLoad : MonoBehaviour {
 
     public GameObject LoadingScreen;
     public Slider slider;
+    public int fase;
 
     public void Start()
     {
-        LoadLevel(1);
+        LoadLevel(fase);
     }
     public void LoadLevel(int sceneIndex)
     {

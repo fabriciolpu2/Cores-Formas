@@ -21,16 +21,16 @@ public class BotaoRecomecarSegundoJogo : MonoBehaviour {
 
 	public void Recomecar (){
 		print("Recomeçar");
-		//int scene = SceneManager.GetActiveScene().buildIndex;
-		//Application.LoadLevel(Application.loadedLevel);
-		//SceneManager.LoadScene(scene);
+        //int scene = SceneManager.GetActiveScene().buildIndex;
+        //Application.LoadLevel(Application.loadedLevel);
+        //SceneManager.LoadScene(scene);
 
 
-		//int scene = SceneManager.GetActiveScene ().buildIndex;
-		//SceneManager.LoadScene (scene, LoadSceneMode.Single);
-		//Time.timeScale = 1;
-
-		SceneManager.LoadScene (cenaAtual);
+        //int scene = SceneManager.GetActiveScene ().buildIndex;
+        //SceneManager.LoadScene (scene, LoadSceneMode.Single);
+        //Time.timeScale = 1;
+        PontuacaoSegundoJogo.pontos = 0;
+        SceneManager.LoadScene (cenaAtual);
 	}
 
 	public void Menu(){
