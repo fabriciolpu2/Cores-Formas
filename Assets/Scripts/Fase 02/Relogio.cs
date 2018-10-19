@@ -16,7 +16,7 @@ public class Relogio : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        tempoRestante = 5.0f;
+        tempoRestante = 30.0f;
 		tenteNovamenteFim = GameObject.FindGameObjectWithTag ("AnimacaoFim");
 		animatortenteNovamenteFim = tenteNovamenteFim.GetComponent<Animator> ();      
     }

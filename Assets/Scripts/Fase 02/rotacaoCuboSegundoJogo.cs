@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -73,8 +74,8 @@ public class rotacaoCuboSegundoJogo : MonoBehaviour {
         textoQuadrado = GameObject.FindGameObjectWithTag("textoQuadrado");
         animatorTextoQuadrado = textoQuadrado.GetComponent<Animator>();
 
-		parabensFim = GameObject.FindGameObjectWithTag ("AnimacaoFim");
-		animatorParabensFim = parabensFim.GetComponent<Animator> ();
+		//parabensFim = GameObject.FindGameObjectWithTag ("AnimacaoFim");
+		//animatorParabensFim = parabensFim.GetComponent<Animator> ();
 
         audioSource = GetComponent<AudioSource>();
 
@@ -187,7 +188,7 @@ public class rotacaoCuboSegundoJogo : MonoBehaviour {
 
 	IEnumerator EspereOsSegundos () {
 		yield return new WaitForSeconds(3);
-		animatorParabensFim.Play ("FimJogo2");
+		//animatorParabensFim.Play ("FimJogo2");
 	}
 
 
