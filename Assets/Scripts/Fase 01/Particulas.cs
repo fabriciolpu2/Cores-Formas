@@ -4,7 +4,7 @@ using System.Collections;
 public class Particulas : MonoBehaviour {
 
 	public GameObject sistemaDeParticulas;
-
+    //Animação Particulas Balde
 	void OnCollisionEnter (Collision collision) {
 		if (collision.gameObject.tag == "BolaVerde" && this.gameObject.tag == "CestoVerde") {
 			SoltarParticulas ();

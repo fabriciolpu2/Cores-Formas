@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+// Classe para rotacionar balde e calcular partidas restantes
 public class rtest : MonoBehaviour  {
 
 	public GameObject pontoReferencia;
@@ -14,6 +14,7 @@ public class rtest : MonoBehaviour  {
 
 	void Update () {
 		if (estado == true ) {
+            // rotacionar baldes
 			transform.RotateAround(pontoReferencia.transform.position, Vector3.up, 50*Time.deltaTime);
 		}
 	}

@@ -17,17 +17,20 @@ public class rotacaoCuboSegundoJogo : MonoBehaviour {
     public float anguloNecessario03;
     public float anguloNecessario04;
 
+    //Nao vai ser usado
     public Transform target01;
     public Transform target02;
     public Transform target03;
     public Transform target04;
 
+    //Sensores
     public GameObject baseCirculo;
     public GameObject poligonoCirculo;
     public GameObject trianguloCirculo;
     public GameObject quadradoCirculo;
 
     public GameObject baloes;
+    //animacao principal
     private Animator ab;
 
     public GameObject textoCirculo;
@@ -58,10 +61,11 @@ public class rotacaoCuboSegundoJogo : MonoBehaviour {
         estado01 = false;
         estado03 = false;
         estado04 = false;
-        //audioSource = GetComponent<AudioSource>();
+        
         baloes = GameObject.Find("Balões");
         ab = baloes.GetComponentInChildren<Animator>();
 
+        // Atribui componentes automaticamente
         textoCirculo = GameObject.FindGameObjectWithTag("textoCirculo");
         animatorTextoCirculo = textoCirculo.GetComponent<Animator>();
 
@@ -74,9 +78,7 @@ public class rotacaoCuboSegundoJogo : MonoBehaviour {
         textoQuadrado = GameObject.FindGameObjectWithTag("textoQuadrado");
         animatorTextoQuadrado = textoQuadrado.GetComponent<Animator>();
 
-		//parabensFim = GameObject.FindGameObjectWithTag ("AnimacaoFim");
-		//animatorParabensFim = parabensFim.GetComponent<Animator> ();
-
+		
         audioSource = GetComponent<AudioSource>();
 
 
@@ -142,6 +144,7 @@ public class rotacaoCuboSegundoJogo : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
 	{
+        // Verifica sensor e objeto
 		if (other.gameObject.tag == "circulo" && this.gameObject.tag == "circuloBase") {
 			estado01 = true;
             

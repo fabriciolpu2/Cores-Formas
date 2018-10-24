@@ -7,7 +7,7 @@ public class BolaPrimeiroJogo : MonoBehaviour {
 	
 	float tempoInicial;
 	float tempo;
-	public int contadorDeColisao;
+	public int contadorDeColisao; // QTD de Quick da bola para destruir
 	private int numeracaoBola;
 	public Image barraDeForca;
  
@@ -22,6 +22,7 @@ public class BolaPrimeiroJogo : MonoBehaviour {
     public Animator animatorVermelhoTexto;
 	public Animator animatorAzulTexto;
 	public Animator animatorVerdeTexto;
+    
     // Script Instancia Bola
     public GameObject scriptInstanciarPrimeiraBola;
 
