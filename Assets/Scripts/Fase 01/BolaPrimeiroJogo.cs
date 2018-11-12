@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class BolaPrimeiroJogo : MonoBehaviour {
-
 	
 	float tempoInicial;
 	float tempo;
@@ -26,12 +25,16 @@ public class BolaPrimeiroJogo : MonoBehaviour {
     // Script Instancia Bola
     public GameObject scriptInstanciarPrimeiraBola;
 
+    public GameObject bolaLancada;
+    public GameObject bola;
+
 
     // Use this for initialization
     void Start () {
 		contadorDeColisao = 0;
 		scriptInstanciarPrimeiraBola.GetComponent<InstanciarPrimeiraBola> ().bolaCinza1.color = new Color32 (0, 255, 33, 255);
 		SetarTextosAoGerarBola();
+        GetComponent<BolaPrimeiroJogo>().enabled = true;
 	}
 		
 	void OnMouseDown(){
@@ -47,6 +50,8 @@ public class BolaPrimeiroJogo : MonoBehaviour {
 	
     void bolaBaldeCorreto()
     {
+        Debug.Log("Balde Correto");
+
         scriptInstanciarPrimeiraBola.GetComponent<InstanciarPrimeiraBola>().Pontuar();
         Destroy(this.gameObject);
         scriptInstanciarPrimeiraBola.GetComponent<InstanciarPrimeiraBola>().TocarAudioEstrelas();
@@ -55,16 +60,25 @@ public class BolaPrimeiroJogo : MonoBehaviour {
     }
     void bolaBaldeErrado()
     {
+        Debug.Log("Balde Erradoo");
         Destroy(this.gameObject);
         scriptInstanciarPrimeiraBola.GetComponent<InstanciarPrimeiraBola>().estadoBarraDeForca = false;
         GerarBola();
     }
+    private void Update()
+    {
+        GetComponent<BolaPrimeiroJogo>().enabled = true;
+    }
+    public void zerarParametros()
+    {
+        contadorDeColisao = 0;        
+    }
 
-	void OnCollisionEnter(Collision collision){
+    void OnCollisionEnter(Collision collision){
 
         if (collision.gameObject.tag == "Piso")
         {
-            // startar uma corritina
+            Debug.Log("Tocando no Piso");
             contadorDeColisao = contadorDeColisao + 1;
             if (contadorDeColisao >= 4)
             {
@@ -72,7 +86,7 @@ public class BolaPrimeiroJogo : MonoBehaviour {
             }
         }
         // VERDE
-        if (collision.gameObject.tag == "CestoVerde" && this.gameObject.tag == "BolaVerde") {
+        if (collision.gameObject.tag == "CestoVerde" && this.gameObject.tag == "BolaVerde") {            
 			animatorVerdeTexto.Play("VERDE");
             bolaBaldeCorreto();
         } else if (collision.gameObject.tag == "CestoVerde" && this.gameObject.tag == "BolaVermelha") {
@@ -103,23 +117,23 @@ public class BolaPrimeiroJogo : MonoBehaviour {
 
 	}
 
-	void GerarBola (){
-		scriptInstanciarPrimeiraBola.GetComponent<InstanciarPrimeiraBola> ().BolasUtilizadas ();
-		numeracaoBola = Random.Range(3, 6);        
-		if (numeracaoBola == 3) {
+	void GerarBola () {
+        
+        Debug.Log("Gerar Bola" + rtest.qtdPartidas);
+		scriptInstanciarPrimeiraBola.GetComponent<InstanciarPrimeiraBola> ().BolasUtilizadas ();        
+        numeracaoBola = Random.Range(1,3);      
+		if (numeracaoBola == 1) {
 			Instantiate (bolaVermelha, new Vector3 (-1.78f, 0, -15.41f), Quaternion.identity);
 			barraDeForca = scriptInstanciarPrimeiraBola.GetComponent<InstanciarPrimeiraBola> ().barraDeForca;
-		} else if (numeracaoBola == 4) {
-			Instantiate (bolaAzul, new Vector3 (-1.78f, 0, -15.41f), Quaternion.identity);
+		} else if (numeracaoBola == 2) {
+            Instantiate(bolaAzul, new Vector3 (-1.78f, 0, -15.41f), Quaternion.identity);
 		} else {
-			Instantiate (bolaVerde, new Vector3 (-1.78f, 0, -15.41f), Quaternion.identity);
+            Instantiate(bolaVerde, new Vector3 (-1.78f, 0, -15.41f), Quaternion.identity);
 		}
 		rtest.qtdPartidas = rtest.qtdPartidas - 1;
-		print ("Restam apenas: " + rtest.qtdPartidas + "partidas!");
-
-		//SetarTextosAoGerarBola ();
-
-		}
+        //zerarParametros();
+        GetComponent<BolaPrimeiroJogo>().enabled = true;
+    }
 
 	void SetarTextosAoGerarBola(){
 		vermelhoTexto = GameObject.FindGameObjectWithTag("vermelhoTexto");
@@ -131,6 +145,4 @@ public class BolaPrimeiroJogo : MonoBehaviour {
 		azulTexto = GameObject.FindGameObjectWithTag("azulTexto");
 		animatorAzulTexto = azulTexto.GetComponent<Animator>();
     }
-
 }
-

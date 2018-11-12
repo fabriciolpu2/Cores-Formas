@@ -30,6 +30,8 @@ public class InstanciarPrimeiraBola : MonoBehaviour {
 	private AudioSource audioSource;
 	public AudioClip somEstrelas;
 
+    public GameObject bolaUtilizada;
+
 
 	private int pontos = 0;
 	public Text pontosTexto;
@@ -41,11 +43,19 @@ public class InstanciarPrimeiraBola : MonoBehaviour {
 		audioSource = GetComponent<AudioSource> ();
 		
 	}
+
+    void buscarBola()
+    {
+        bolaUtilizada = GameObject.FindObjectOfType<BolaPrimeiroJogo>().gameObject;
+        bolaUtilizada.GetComponent<BolaPrimeiroJogo>().enabled = true;
+    }
     
 	// Update is called once per frame
 	void Update () {
-		if (estadoBarraDeForca == true) {
+        buscarBola();        
+        if (estadoBarraDeForca == true) {
 			barraDeForca.fillAmount = barraDeForca.fillAmount + 0.005f;	
+            
 		}
 
 		if (estadoBarraDeForca == false) {
@@ -57,33 +67,43 @@ public class InstanciarPrimeiraBola : MonoBehaviour {
 	}
 
 	public void BolasUtilizadas() {
-		bolasUtilizadas = bolasUtilizadas + 1;		
-        if(bolasUtilizadas == 1) {
+        bolasUtilizadas = bolasUtilizadas + 1;
+        if (bolasUtilizadas == 1) {
             bolaCinza1.color = new Color32(0, 255, 33, 255);
+            bolaUtilizada.GetComponent<BolaPrimeiroJogo>().zerarParametros();
         } else if (bolasUtilizadas == 2) {
-			bolaCinza2.color = new Color32 (0, 255, 33, 255);
+            bolaUtilizada.GetComponent<BolaPrimeiroJogo>().zerarParametros();
+            bolaCinza2.color = new Color32 (0, 255, 33, 255);
 		} else if (bolasUtilizadas == 3) {
 			bolaCinza3.color = new Color32 (0, 255, 33, 255);
-		} else if (bolasUtilizadas == 4) {
+            bolaUtilizada.GetComponent<BolaPrimeiroJogo>().zerarParametros();
+        } else if (bolasUtilizadas == 4) {
 			bolaCinza4.color = new Color32 (0, 255, 33, 255);
-		} else if (bolasUtilizadas == 5) {
+            bolaUtilizada.GetComponent<BolaPrimeiroJogo>().zerarParametros();
+        } else if (bolasUtilizadas == 5) {
 			bolaCinza5.color = new Color32 (0, 255, 33, 255);
-		} else if (bolasUtilizadas == 6) {
+            bolaUtilizada.GetComponent<BolaPrimeiroJogo>().zerarParametros();
+        } else if (bolasUtilizadas == 6) {
 			bolaCinza6.color = new Color32 (0, 255, 33, 255);
-		} else if (bolasUtilizadas == 7) {
+            bolaUtilizada.GetComponent<BolaPrimeiroJogo>().zerarParametros();
+        } else if (bolasUtilizadas == 7) {
 			bolaCinza7.color = new Color32 (0, 255, 33, 255);
-		} else if (bolasUtilizadas == 8) {
+            bolaUtilizada.GetComponent<BolaPrimeiroJogo>().zerarParametros();
+        } else if (bolasUtilizadas == 8) {
 			bolaCinza8.color = new Color32 (0, 255, 33, 255);
-		} else if (bolasUtilizadas == 9) {
+            bolaUtilizada.GetComponent<BolaPrimeiroJogo>().zerarParametros();
+        } else if (bolasUtilizadas == 9) {
 			bolaCinza9.color = new Color32 (0, 255, 33, 255);
-		} else if (bolasUtilizadas == 10) {
+            bolaUtilizada.GetComponent<BolaPrimeiroJogo>().zerarParametros();
+        } else if (bolasUtilizadas == 10) {
 			bolaCinza10.color = new Color32 (0, 255, 33, 255);
-		} else if (bolasUtilizadas == 11) {
+            bolaUtilizada.GetComponent<BolaPrimeiroJogo>().zerarParametros();
+        } else if (bolasUtilizadas == 11) {
             // Encerra Jogo
             verificarNotaFinal(pontos);
 		}
-
-	}
+        
+    }
     void verificarNotaFinal(int pontos)
     {
         if (pontos >= 1 && pontos <= 3)
